@@ -26,7 +26,7 @@
         for (var i = 0; i < this.height; i++) {
             factor = 2 * factor + 1;
         }
-        alert("Рекурсией вычеслили: задача имеет " + factor + " решений");
+        alert("Рекурсией вычеслили: для решения задачи требуется " + factor + " перекладываний");
     };
 
     /**
@@ -34,7 +34,7 @@
      */
     Tower.prototype.recurrence = function () {
         var solutions = Math.pow(2, this.height) - 1;
-        alert("Рекурентностью вычислили: задача имеет " + solutions + " решений");
+        alert("Рекурентностью вычислили: для решения задачи требуется " + solutions + " перекладываний");
     };
 
 
