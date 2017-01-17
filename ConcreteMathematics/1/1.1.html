@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Решение задачи о ханойской башне</title>
+</head>
+<body>
+<script>
+    /**
+     * Создадим конструктор
+     * @constructor
+     */
+    function Tower() {
+        var height = 0;
+        while (isNaN(height) || height < 1) {
+            height = prompt('Башню какой высоты вы хотите создать (Введите число)?', 15);
+        }
+        this.height = height;
+    }
+
+    /**
+     * Добавляем метод определения решиния рекурсией
+     */
+    Tower.prototype.recursion = function () {
+        var factor = 0;
+        for (var i = 0; i < this.height; i++) {
+            factor = 2 * factor + 1;
+        }
+        alert("Рекурсией вычеслили: задача имеет " + factor + " решений");
+    };
+
+    /**
+     * Добавляем метод определения решиния рекурентностью
+     */
+    Tower.prototype.recurrence = function () {
+        var solutions = Math.pow(2, this.height) - 1;
+        alert("Рекурентностью вычислили: задача имеет " + solutions + " решений");
+    };
+
+
+    //Создадим башню и выховем её методы
+    var tower = new Tower();
+    tower.recursion();
+    tower.recurrence();
+
+</script>
+</body>
+</html>
