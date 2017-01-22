@@ -20,9 +20,9 @@
     while (i <= 100) {
         if (i % 3 == 0 && i % 5 != 0) {
             console.log('Fizz');
-        } else if (i % 5 == 0 && i % 3 != 0){
+        } else if (i % 5 == 0 && i % 3 != 0) {
             console.log('Buzz');
-        } else if (i % 5 == 0 && i % 5 == 0){
+        } else if (i % 5 == 0 && i % 5 == 0) {
             console.log('FizzBuzz');
         } else {
             console.log(i);
@@ -39,7 +39,7 @@
      */
     function showBoard(countX, countY) {
         //Обернем выражение в цикл, который выполняется, пока количество строк не будет равно заданному
-        for (var i = 1; i <= countY; i++){
+        for (var i = 1; i <= countY; i++) {
             //Получим строку шириной countX, которая будет на позиции i
             var string = getString(countX, i);
             //Отобразим её
@@ -51,6 +51,7 @@
      * Функция генерирует строку для шахматной доски, заданной длины и позиции.
      * @param length
      * @param position
+     * @return string
      */
     function getString(length, position) {
         //Объявляем пусую строку, в которую потом запишем данные
@@ -58,11 +59,11 @@
         //По умолчанию начинаем строку с решетки
         var symbol = '#';
         //Если позиция строки кратна двум, то начинаем строку с пробела
-        if (position%2){
+        if (position % 2) {
             symbol = ' ';
         }
         //Циклом сгененируем строку
-        for(var i = 0; i < length; i++){
+        for (var i = 0; i < length; i++) {
             symbol = getSymbol(symbol);
             string += symbol;
         }
@@ -83,13 +84,13 @@
         }
     }
 
+    //Отобразим нашу доску
     showBoard(8, 8);
 
     console.log('Когда справитесь, сделайте размер доски переменным, чтобы можно было создавать доски любого размера.');
-
     console.log('Для примера доска размером 15х15.');
     showBoard(15, 15);
-    
+
 </script>
 </body>
 </html>
