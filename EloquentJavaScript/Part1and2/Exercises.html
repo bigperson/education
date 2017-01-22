@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Упражнения к частям 1 и 2</title>
+</head>
+<body>
+<h1>Для просмотра результатов откройте консоль</h1>
+<script>
+    console.log('Упражение 1 - Напишите цикл, который за 7 вызовов console.log выводит треугольник:')
+    var triangle = '';
+    while (triangle.length <= 7) {
+        triangle += '#';
+        console.log(triangle);
+    }
+
+    console.log('Напишите программу, которая выводит через console.log все числа от 1 до 100, с двумя исключениями. Для чисел, нацело делящихся на 3, она должна выводить ‘Fizz’, а для чисел, делящихся на 5 (но не на 3) – ‘Buzz’:');
+    console.log('Когда сумеете – исправьте её так, чтобы она выводила «FizzBuzz» для всех чисел, которые делятся и на 3, и на 5.');
+    var i = 1;
+    while (i <= 100) {
+        if (i % 3 == 0 && i % 5 != 0) {
+            console.log('Fizz');
+        } else if (i % 5 == 0 && i % 3 != 0){
+            console.log('Buzz');
+        } else if (i % 5 == 0 && i % 5 == 0){
+            console.log('FizzBuzz');
+        } else {
+            console.log(i);
+        }
+        i++;
+    }
+
+    console.log('Напишите программу, создающую строку, содержащую решётку 8х8, в которой линии разделяются символами новой строки. На каждой позиции либо пробел, либо #.')
+
+    /**
+     * Создадим функцию которая отображает доску. Функция принимает 2 параметра - размер доски по ширине и по высоте.
+     * @param countX
+     * @param countY
+     */
+    function showBoard(countX, countY) {
+        //Обернем выражение в цикл, который выполняется, пока количество строк не будет равно заданному
+        for (var i = 1; i <= countY; i++){
+            //Получим строку шириной countX, которая будет на позиции i
+            var string = getString(countX, i);
+            //Отобразим её
+            console.log(string);
+        }
+    }
+
+    /**
+     * Функция генерирует строку для шахматной доски, заданной длины и позиции.
+     * @param length
+     * @param position
+     */
+    function getString(length, position) {
+        //Объявляем пусую строку, в которую потом запишем данные
+        var string = '';
+        //По умолчанию начинаем строку с решетки
+        var symbol = '#';
+        //Если позиция строки кратна двум, то начинаем строку с пробела
+        if (position%2){
+            symbol = ' ';
+        }
+        //Циклом сгененируем строку
+        for(var i = 0; i < length; i++){
+            symbol = getSymbol(symbol);
+            string += symbol;
+        }
+
+        return string;
+    }
+
+    /**
+     * Функция возвражает противоположный символь - решетку или пробел
+     * @param symbol
+     * @returns {*}
+     */
+    function getSymbol(symbol) {
+        if (symbol === '#') {
+            return ' ';
+        } else {
+            return '#'
+        }
+    }
+
+    showBoard(8, 8);
+
+    console.log('Когда справитесь, сделайте размер доски переменным, чтобы можно было создавать доски любого размера.');
+
+    console.log('Для примера доска размером 15х15.');
+    showBoard(15, 15);
+    
+</script>
+</body>
+</html>
