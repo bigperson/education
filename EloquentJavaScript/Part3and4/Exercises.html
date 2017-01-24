@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Упражнения к частям 3 и 4</title>
+</head>
+<body>
+<h1>Для просмотра результатов откройте консоль</h1>
+<script>
+   console.log('Минимум');
+   console.log('Напишите функцию min, принимающую два аргумента, и возвращающую минимальный из них.');
+   function min(arg1, arg2) {
+       //Если параметр 1 меньше параметра 2
+       if (arg1<arg2){
+           //То выведем его
+           return arg1;
+       } else {
+           //Иначе выведем второй парметр.
+           //По условиям задачи не сказанно, что выводить, если параметры равны, поэтому выведем второе щначение
+           return arg2;
+       }
+   }
+   console.log('Из 5 и 10 меньшее:' + min(5,10));
+   console.log('Из 33 и 82 меньшее:' + min(33, 82));
+
+   console.log('Рекурсия');
+   console.log('Подробное описание задачи см. в readme.md.');
+
+   function isEven(number) {
+       //Если передано 0, то ситаем его четным и возвращаем true
+       if (!number)
+           return true;
+
+       //Если передана 1, то считаем не четным и возвращаем false
+       if (number == 1) {
+           return false;
+       }
+
+       return isEven(number - 2);
+   }
+
+   function isEvenFix(number) {
+       //Если передано 0, то ситаем его четным и возвращаем true
+       if(!number)
+           return true;
+
+       //Иначе возвращаем остаток от деления, преобразованный к противоположному Boolean в строенной одноименной функцией
+       return !Boolean(number % 2)
+   }
+   console.log(isEvenFix(0));
+   console.log(isEvenFix(1));
+   console.log(isEvenFix(50));
+   console.log(isEvenFix(75));
+   console.log(isEvenFix(-1));
+
+   console.log('Считаем бобы');
+   console.log('Подробное описание задачи см. в readme.md.');
+
+   function countBs(string) {
+       var searchValue = 'B';//Искомый символ
+       var count = 0; //счетчик
+
+       //Пройдемся циклом по строчке
+       for(var i = 0; i < string.length-1; i++)
+       {
+           //Если текущая буква сопадает, то увеличим счетчик на 1
+           if(string.charAt(i) == searchValue){
+               count++;
+           }
+       }
+       return count;
+   }
+
+   console.log(countBs('BOBS'));
+
+   function countChar(string, searchValue) {
+       var count = 0; //счетчик
+
+       //Пройдемся циклом по строчке
+       for(var i = 0; i < string.length-1; i++)
+       {
+           //Если текущая буква сопадает, то увеличим счетчик на 1
+           if(string.charAt(i) == searchValue){
+               count++;
+           }
+       }
+       return count;
+   }
+   console.log(countChar('hellow', 'l'));
+
+</script>
+</body>
+</html>
